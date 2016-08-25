@@ -1,0 +1,22 @@
+.problemSetApp {
+  height: auto; }
+  .problemSetApp .table {
+    background-color: #fff; }
+    .problemSetApp .table .title {
+      font-weight: bold;
+      text-transform: uppercase; }
+    .problemSetApp .table .tr {
+      border-bottom: solid 1px #e0e0e0; }
+  .problemSetApp .login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px #fff; }
+
+md-toast.md-success-toast-theme .md-toast-content {
+  background-color: green; }
+
+md-toast.md-error-toast-theme .md-toast-content {
+  background-color: maroon; }
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,38 @@
+<md-dialog aria-label="Menambahkan Contact">
+  <form name="formContact" ng-cloak>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Menambahkan Contact</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content" flex>
+        <form>
+          <md-input-container>
+            <label>Title</label>
+            <input ng-model="title" required></input>
+          </md-input-container>
+          <md-input-container>
+            <label>Name</label>
+            <input ng-model="name" required></input>
+          </md-input-container>
+          <md-chips ng-model="chips.phone" md-removable="chips.removable" placeholder="Enter a Phone" delete-button-label="Remove Phone" delete-hint="Press delete to remove phone" econdary-placeholder="+Phone"></md-chips>
+          <md-chips ng-model="chips.email" md-removable="chips.removable" placeholder="Enter a Email" delete-button-label="Remove Email" delete-hint="Press delete to remove Email" econdary-placeholder="+Email"></md-chips>
+          <md-chips ng-model="chips.andress" md-removable="chips.remoandressvable" placeholder="Enter a Andress" delete-button-label="Remove Andress" delete-hint="Press delete to remove Andress" econdary-placeholder="+Andress"></md-chips>
+          <md-input-container>
+            <label>Company</label>
+            <input ng-model="company" required></input>
+          </md-input-container>
+        </form>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <md-button ng-disabled="formContact.$valid === false" ng-click="save($event)">
+        Save
+      </md-button>
+      <md-button ng-click="close($event)">
+        Cencel
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

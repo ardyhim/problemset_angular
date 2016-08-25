@@ -1,0 +1,15 @@
+<section layout-padding flex class="">
+  <form name="formLogin" ng-submit="submit()">
+    <md-input-container class="md-icon-float md-block">
+      <label>Username</label>
+      <input ng-model="username" required></input>
+    </md-input-container>
+    <md-input-container class="md-icon-float md-block">
+      <label>Password</label>
+      <input ng-model="password" type="password" required></input>
+    </md-input-container>
+    <div layout="column">
+      <md-button type="submit" ng-disabled="formLogin.$valid === false" class="md-raised md-primary">Login</md-button>
+    </div>
+  </form>
+</section>

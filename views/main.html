@@ -1,0 +1,130 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+    <h2 class="md-flex">Contact</h2>
+  </div>
+</md-toolbar>
+<div layout="row" layout-padding>
+  <form name="formSearch" ng-submit="search(filter,keyword)" layout="row" flex>
+    <md-input-container flex="20">
+      <label>Filter</label>
+      <md-select name="type" ng-model="filter" required>
+        <md-option enable value="title">Title</md-option>
+        <md-option value="name">Name</md-option>
+        <md-option value="phone">Phone</md-option>
+        <md-option value="email">Email</md-option>
+        <md-option value="andress">Andress</md-option>
+        <md-option value="company">Company</md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex md-no-float class="md-block">
+      <input ng-model="keyword" type="text" placeholder="Search" required>
+      <md-icon class="material-icons">search</md-icon>
+    </md-input-container>
+  </form>
+</div>
+<div class="table">
+  <div layout="colum" class="tr title" flex layout-padding>
+    <div layout="row" flex="30">
+      <div>
+        Title
+      </div>
+    </div>
+    <div layout="row" flex="30">
+      <div>
+        name
+      </div>
+    </div>
+    <div layout="row" flex="30">
+      <div>
+        company
+      </div>
+    </div>
+    <div layout="row" flex="30">
+      <div>
+        email
+      </div>
+    </div>
+    <div layout="row" flex="30">
+      <div>
+        phone
+      </div>
+    </div>
+    <div layout="row" flex="30">
+      <div>
+        andress
+      </div>
+    </div>
+    <div layout="row">
+      <md-button class="md-icon-button" ng-click="reset()">
+        <md-icon>update</md-icon>
+        <md-tooltip md-direction="left">
+            Refresh
+        </md-tooltip>
+      </md-button>
+    </div>
+  </div>
+  <div ng-repeat="data in datas" layout="colum" class="tr" flex layout-padding>
+    <div flex="30">
+      <div>
+        {{data.title}}
+      </div>
+    </div>
+    <div flex="30">
+      <div>
+        {{data.name}}
+      </div>
+    </div>
+    <div flex="30">
+      <div>
+        {{data.company}}
+      </div>
+    </div>
+    <div flex="30">
+      <div ng-repeat="email in data.email">
+        {{email}}
+      </div>
+    </div>
+    <div flex="30">
+      <div ng-repeat="phone in data.phone">
+        {{phone}}
+      </div>
+    </div>
+    <div flex="30">
+      <div ng-repeat="andress in data.andress" layout="column">
+        {{andress}}
+        <br>
+      </div>
+    </div>
+    <div>
+      <div layout="row">
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon class="material-icons" ng-click="delete(data._id)">delete</md-icon>
+          <md-tooltip md-direction="button">
+              Hapus Contact
+          </md-tooltip>
+        </md-button>
+        <md-button class="md-icon-button" aria-label="More">
+          <md-icon class="material-icons" ng-click="edit($event, data)">mode_edit</md-icon>
+          <md-tooltip md-direction="button">
+              Update Contact
+          </md-tooltip>
+        </md-button>
+      </div>
+    </div>
+  </div>
+  <div layout="row" layout-padding>
+    <md-button ng-disabled="paginate <= 9" ng-click="backward()" class="md-icon-button">
+      <md-icon class="material-icons" >first_page</md-icon>
+      <md-tooltip md-direction="right">
+          Back
+      </md-tooltip>
+    </md-button>
+    <span flex></span>
+    <md-button ng-disabled="datas.length <= 9" ng-click="forward()" class="md-icon-button">
+      <md-icon class="material-icons">last_page</md-icon>
+      <md-tooltip md-direction="left">
+          Next
+      </md-tooltip>
+    </md-button>
+  </div>
+</div>
