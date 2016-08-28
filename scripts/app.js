@@ -37,6 +37,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  }).config(function($httpProvider){
+    $httpProvider.interceptors.push('authInterceptor');
   }).run(function($window, $location, Auth){
     if ($window.sessionStorage.token) {
       Auth.setUser($window.sessionStorage.username);
